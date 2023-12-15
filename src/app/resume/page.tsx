@@ -2,8 +2,6 @@ export default function Resume() {
     const resume = {
         name: "Michael Curry",
         title: "Software Engineer",
-        email: "michaelcurry95@gmail.com",
-        phone: "518-419-5294",
         website: "michaelcurry.dev",
         mission: "I am seeking fulltime employment as a software engineer in the Upstate New York area. I have experience with React, Node, and PHP, but I'm always looking to learn new things.",
         skills: [
