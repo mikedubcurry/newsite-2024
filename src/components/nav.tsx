@@ -12,11 +12,13 @@ export default function Nav() {
     ]
     return (
         <nav className='flex justify-center gap-6 py-8'>
-        {links.map(({ href, label }) => (
-            <Link key={href} href={href} className={pathname === href ? 'font-bold text-yellow-100' : ''}>
-                {label}
-            </Link>
-        ))}
-        </nav>
+            {/** checks if current pathname is subroute of a link **/}
+            {links.map(({ href, label }) => (
+                < Link key={href} href={href} className={pathname === href || (pathname.split('/')[1] === href.slice(1)) ? 'font-bold text-yellow-100' : ''}>
+                    {label}
+                </Link>
+            ))
+            }
+        </nav >
     )
 }
