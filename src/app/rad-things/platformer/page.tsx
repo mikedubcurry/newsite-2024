@@ -38,7 +38,7 @@ export default function Platformer() {
 
         const player: Player = {
             x: width / 2 - 16,
-            y: 0,
+            y: height - 32,
             width: 32,
             height: 32,
             speed: 5,
@@ -52,7 +52,7 @@ export default function Platformer() {
         const keys: {
             [key: string]: boolean
         } = {}
-        const friction = 0.8
+        const friction = 0.9
         const gravity = 0.3
 
         const platforms: Platform[] = [
@@ -68,37 +68,16 @@ export default function Platformer() {
         ]
 
         const coins: Coin[] = [
-            { x: 100, y: 200, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
-            { x: 200, y: 200, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
-            { x: 300, y: 200, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
-            { x: 400, y: 200, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
-            { x: 500, y: 200, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
-            { x: 600, y: 200, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
+            { x: 100, y: 180, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
+            { x: 200, y: 230, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
+            { x: 300, y: 110, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
+            { x: 400, y: 170, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
+            { x: 500, y: 320, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
+            { x: 600, y: 400, width: 10, height: 10, speed: 0, velX: 0, velY: 0, points: 10, visible: true },
         ]
 
         function update() {
             ctx.clearRect(0, 0, width, height)
-            // check keys
-            if (keys['ArrowUp'] || keys[' ']) {
-                // up arrow or space
-                if (!player.jumping && player.grounded) {
-                    player.jumping = true
-                    player.grounded = false
-                    player.velY = -player.speed * 2
-                }
-            }
-            if (keys['ArrowRight']) {
-                // right arrow
-                if (player.velX < player.speed) {
-                    player.velX++
-                }
-            }
-            if (keys['ArrowLeft']) {
-                // left arrow
-                if (player.velX > -player.speed) {
-                    player.velX--
-                }
-            }
             // update platforms
             for (let i = 0; i < platforms.length; i++) {
                 if (platforms[i].speed === 0) continue
@@ -110,13 +89,15 @@ export default function Platformer() {
                 platforms[i].x += platforms[i].speed
             }
 
-
             player.velX *= friction
             player.velY += gravity
 
             ctx.fillStyle = '#0f0'
             ctx.beginPath()
             player.grounded = false
+
+            let vel: number = 0
+
             for (let i = 0; i < platforms.length; i++) {
                 ctx.fillRect(platforms[i].x, platforms[i].y, platforms[i].width, platforms[i].height)
                 const dir = colCheck(player, platforms[i])
@@ -126,12 +107,16 @@ export default function Platformer() {
                 } else if (dir === 'b') {
                     player.grounded = true
                     player.jumping = false
+                    vel = platforms[i].speed
                 } else if (dir === 't') {
                     player.velY *= -1
+
                 }
             }
+
             if (player.grounded) {
                 player.velY = 0
+                player.velX = vel
             }
 
             if (player.x >= width) {
@@ -166,6 +151,27 @@ export default function Platformer() {
             if (coins.every(coin => !coin.visible)) {
                 alert('You Win!')
                 window.location.reload()
+            }
+            // check keys
+            if (keys['ArrowUp'] || keys[' ']) {
+                // up arrow or space
+                if (!player.jumping && player.grounded) {
+                    player.jumping = true
+                    player.grounded = false
+                    player.velY = -player.speed * 2
+                }
+            }
+            if (keys['ArrowRight']) {
+                // right arrow
+                if (player.velX < player.speed) {
+                    player.velX+= 2
+                }
+            }
+            if (keys['ArrowLeft']) {
+                // left arrow
+                if (player.velX > -player.speed) {
+                    player.velX-=2
+                }
             }
 
             requestAnimationFrame(update)
