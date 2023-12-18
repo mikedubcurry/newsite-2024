@@ -34,7 +34,7 @@ export default async function Resume() {
     return (
         <main className="w-8/12 mx-auto flex min-h-screen flex-col justify-between py-24 h-full gap-8">
             <div className="flex flex-col justify-center gap-4">
-                <h1 className="text-4xl font-bold">Resume</h1>
+                <h1 className="text-6xl font-bold">Resume</h1>
                 <p>Download a PDF version of my resume <a className="underline" href="/resume.pdf" download>here</a>.</p>
             </div>
             <div className="flex flex-col justify-center gap-4">
