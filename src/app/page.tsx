@@ -19,7 +19,7 @@ export default function Home() {
         },
     ]
     return (
-        <main className="md:w-8/12 mx-4 md:mx-auto flex min-h-screen flex-col justify-between py-24 h-full gap-8">
+        <main className="md:w-8/12 mx-4 md:mx-auto flex min-h-screen flex-col justify-between py-24 h-full gap-12 md:gap-8">
             <div className="flex flex-col justify-center gap-4">
                 <h1 className="text-6xl font-bold">Michael Curry</h1>
                 <p className="text-3xl text-right md:text-left">Software Engineer</p>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 type Entity = {
     x: number
@@ -30,11 +30,13 @@ type Coin = Entity & {
 
 
 export default function Platformer() {
+    const [playing, setPlaying] = useState(false)
     useEffect(() => {
         const canvas = document.getElementById('game')! as HTMLCanvasElement
         const ctx = canvas.getContext('2d')!
         const width = canvas.width
         const height = canvas.height
+        let moving = false
 
         const player: Player = {
             x: width / 2 - 16,
@@ -88,16 +90,12 @@ export default function Platformer() {
                 }
                 platforms[i].x += platforms[i].speed
             }
-
             player.velX *= friction
             player.velY += gravity
-
             ctx.fillStyle = '#0f0'
             ctx.beginPath()
             player.grounded = false
-
             let vel: number = 0
-
             for (let i = 0; i < platforms.length; i++) {
                 ctx.fillRect(platforms[i].x, platforms[i].y, platforms[i].width, platforms[i].height)
                 const dir = colCheck(player, platforms[i])
@@ -110,15 +108,14 @@ export default function Platformer() {
                     vel = platforms[i].speed
                 } else if (dir === 't') {
                     player.velY *= -1
-
                 }
             }
-
             if (player.grounded) {
                 player.velY = 0
-                player.velX = vel
+                if (!keys['ArrowLeft'] && !keys['ArrowRight']) {
+                    player.velX = vel
+                }
             }
-
             if (player.x >= width) {
                 player.x = 0
             } else if (player.x <= 0) {
@@ -127,10 +124,8 @@ export default function Platformer() {
             if (player.y >= height) {
                 player.y = 0
             }
-
             player.x += player.velX
             player.y += player.velY
-
             ctx.fillStyle = '#f00'
             ctx.fillRect(player.x, player.y, player.width, player.height)
 
@@ -147,10 +142,8 @@ export default function Platformer() {
                     player.points += coins[i].points
                 }
             }
-
             if (coins.every(coin => !coin.visible)) {
-                alert('You Win!')
-                window.location.reload()
+                setPlaying(false)
             }
             // check keys
             if (keys['ArrowUp'] || keys[' ']) {
@@ -164,18 +157,19 @@ export default function Platformer() {
             if (keys['ArrowRight']) {
                 // right arrow
                 if (player.velX < player.speed) {
-                    player.velX+= 2
+                    player.velX += 2
                 }
             }
             if (keys['ArrowLeft']) {
                 // left arrow
                 if (player.velX > -player.speed) {
-                    player.velX-=2
+                    player.velX -= 2
                 }
             }
-
-            requestAnimationFrame(update)
+            if (playing)
+                requestAnimationFrame(update)
         }
+
         function colCheck(shapeA: any, shapeB: any) {
             // get the vectors to check against
             const vX = (shapeA.x + (shapeA.width / 2)) - (shapeB.x + (shapeB.width / 2))
@@ -213,7 +207,8 @@ export default function Platformer() {
         document.body.addEventListener('keydown', handleKeyDown)
         document.body.addEventListener('keyup', handleKeyUp)
 
-        update()
+        if (playing)
+            update()
         ctx.fillStyle = '#fff';
         ctx.fillRect(0, 0, width, height);
 
@@ -228,11 +223,13 @@ export default function Platformer() {
             document.body.removeEventListener('keydown', handleKeyDown)
             document.body.removeEventListener('keyup', handleKeyUp)
         }
-    }, [])
+    }, [playing, setPlaying])
+
     return (
         <main className="w-8/12 mx-auto flex min-h-screen flex-col justify-between py-20 h-full gap-8">
             <h1 className="font-bold text-6xl">Platformer</h1>
             <div className="flex flex-col gap-4">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setPlaying(!playing)}>{playing ? 'Stop' : 'Start'}</button>
                 <canvas id="game" width="800" height="600"></canvas>
             </div>
         </main>
