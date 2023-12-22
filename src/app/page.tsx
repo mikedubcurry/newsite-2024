@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
@@ -20,9 +21,12 @@ export default function Home() {
     ]
     return (
         <main className="md:w-8/12 mx-4 md:mx-auto flex min-h-screen flex-col justify-between py-24 h-full gap-12 md:gap-8">
-            <div className="flex flex-col justify-center gap-4">
-                <h1 className="text-6xl font-bold">Michael Curry</h1>
-                <p className="text-3xl text-right md:text-left">Software Engineer</p>
+            <div className="flex items-center gap-4">
+                <Image src='/insta.jpg' alt="an action shot of me doing a kickflip on a skateboard" width={100} height={100} className='rounded-full' />
+                <div className='flex flex-col justify-center gap-4'>
+                    <h1 className="text-6xl font-bold">Michael Curry</h1>
+                    <p className="text-3xl text-right md:text-left">Software Engineer</p>
+                </div>
             </div>
             <div className='flex md:flex-row flex-col justify-center items-stretch gap-6 h-full w-full'>
                 {cards.map((card, i) => (
@@ -45,6 +49,6 @@ export default function Home() {
                     We usually get together once a week and jam out for a few hours playing mostly metal-sounding stuff.
                 </p>
             </div>
-        </main>
+        </main >
     )
 }
