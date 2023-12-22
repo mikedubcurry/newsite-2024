@@ -40,8 +40,9 @@ export default async function Resume() {
             <div className="flex flex-col justify-center gap-4">
                 <h2 className="text-3xl font-bold">{resume.name}</h2>
                 <ul className="ml-4">
-                    <li>{resume.title}</li>
-                    <li><a href={'http://' + resume.website}>{resume.website}</a></li>
+                    <li className="mb-2">{resume.title}</li>
+                    <li className="mb-2"><a href={'http://' + resume.website}>{resume.website}</a></li>
+                    <li className="mb-2"><p>{resume.mission}</p></li>
                 </ul>
             </div>
             <div className="flex flex-col justify-center gap-4">
@@ -59,7 +60,7 @@ export default async function Resume() {
                         <li className="mb-8" key={i}>
                             <h3 className="font-bold text-xl">{job.title} - {job.company}</h3>
                             <p className="italic">{formatDate(job.startDate)} - {formatDate(job.endDate)}</p>
-                            <p>{job.description}</p>
+                            <p className="leading-7">{job.description}</p>
                         </li>
                     ))}
                 </ul>
