@@ -25,7 +25,7 @@ export default function Nav() {
                 )}
             </div>
             {/** checks if current pathname is subroute of a link **/}
-            <div className='flex items-center justify-center gap-4 py-4'>
+            <div className='flex items-center justify-end gap-4 py-4 col-span-2'>
                 {links.map(({ href, label }) => (
                     < Link key={href} href={href} className={pathname === href || (pathname.split('/')[1] === href.slice(1)) ? 'font-bold text-yellow-100' : ''}>
                         {label}
