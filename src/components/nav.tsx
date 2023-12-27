@@ -13,7 +13,7 @@ export default function Nav() {
     ]
     return (
         <nav className='grid grid-cols-3 py-6 w-8/12 mx-auto'>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4" style={{viewTransitionName: 'hero'}}>
                 {pathname !== '/' && (
                     < >
                         <Image src='/insta.jpg' alt="an action shot of me doing a kickflip on a skateboard" width={50} height={50} className='rounded-full' />
