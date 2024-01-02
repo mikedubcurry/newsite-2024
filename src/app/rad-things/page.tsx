@@ -17,10 +17,13 @@ export default function RadThings() {
                 </div>
             </div>
             <h2 className="font-bold text-4xl">Setup</h2>
-            <p className="">
+            <p className="leading-8 mb-2">
                 I use a System76 Galago Pro running Ubuntu (whatever the latest version is) and enough specs to run all the docker containers I need.
                 I use neovim as my editor of choice, but am really not picky about it. As long as there is some sort of LSP integration, I&lsquo;m happy.
                 You can find my dotfiles <a className="underline hover:text-purple-400" href="https://github.com/mikedubcurry/dotfiles" target="_blank" rel="noreferrer noopener">here</a>.
+            </p>
+            <p className="leading-8 mb-2">
+                I used to produce electronic music using FL Studio, but I have not dabbled in that in a while. You can find my tunes on SoundCloud <a className="underline hover:text-purple-400" href="https://soundcloud.com/mikedubcurry" target="_blank" rel="noreferrer noopener">here</a>.
             </p>
         </main>
     )
