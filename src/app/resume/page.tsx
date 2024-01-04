@@ -3,7 +3,7 @@ type Resume = {
     title: string,
     website: string,
     mission: string,
-    skills: string[],
+    skills: { skill: string; use: string }[],
     experience: {
         title: string,
         company: string,
@@ -48,8 +48,8 @@ export default async function Resume() {
             <div className="flex flex-col justify-center gap-4">
                 <h2 className="font-bold text-2xl">Skills</h2>
                 <ul className="list-disc list-inside">
-                    {resume.skills.map((skill, i) => (
-                        <li key={i}>{skill}</li>
+                    {resume.skills.map(({ skill, use }, i) => (
+                        <li key={i}><p>{skill}: {use}</p></li>
                     ))}
                 </ul>
             </div>
