@@ -19,6 +19,7 @@ export default function Projects() {
                     <li className="mb-4">
                         <a href="https://github.com/mikedubcurry/computer-vision" className="text-blue-500 hover:underline" target="_blank" rel="referer noopener">Computer Vision</a>
                         <p className="text-gray-500">A browser app demonstrating the use of tensorflow.js to detect hand-drawn numbers, using Vite to serve the app.</p>
+                        <p className="text-gray-500">The model is trained in the browser using two possible datasets to demonstrate how using a larger dataset can yield better inference.</p>
                     </li>
                 </ul>
 
@@ -27,6 +28,7 @@ export default function Projects() {
                     <li className="mb-4">
                         <a href="https://github.com/mikedubcurry/sst-app" className="text-blue-500 hover:underline" target="_blank" rel="referer noopener">Serverless Stack</a>
                         <p className="text-gray-500">A serverless stack app using SST, Lambda functions, Cognito, and DynamoDB.</p>
+                        <p className="text-gray-500">I followed the developer guide tutorial to build this out, which helped me understand how to structure a serverless app on my own.</p>
                     </li>
                 </ul>
             </section>
