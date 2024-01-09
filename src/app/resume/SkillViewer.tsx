@@ -9,8 +9,8 @@ export default function SkillViewer({ skills }: { skills: { skill: string; use: 
         <div className="grid grid-cols-2">
             <ul className="list-disc list-inside">
                 {skills.map(({ skill, use }, i) => (
-                    <li className="text-lg" onClick={() => setSelectedSkill(skill)} key={i}>
-                        <span className={selectedSkill === skill ? 'text-purple-400' : ''}>{skill}</span>
+                    <li className="text-lg" key={i}>
+                        <span onClick={() => setSelectedSkill(skill)} className={selectedSkill === skill ? 'text-purple-400' : 'cursor-pointer hover:text-purple-500'}>{skill}</span>
                     </li>
                 ))}
             </ul>

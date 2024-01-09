@@ -1,6 +1,6 @@
 export default function Projects() {
     return (
-        <main className="w-8/12 mx-auto flex flex-col min-h-screen py-24 h-full gap-8">
+        <main className="w-8/12 mx-auto flex flex-col  py-24 h-full gap-8">
             <div className="flex flex-col justify-center gap-4">
                 <h1 className="text-6xl font-bold">Projects</h1>
             </div>

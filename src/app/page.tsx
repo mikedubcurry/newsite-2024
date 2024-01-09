@@ -14,14 +14,14 @@ export default function Home() {
             href: "/projects",
             description: "A collection of cools things I've built",
         },
-        //{
-        //    title: "Rad Things",
-        //    href: "/rad-things",
-        //    description: "My greatest hits",
-        //},
+        {
+            title: "Rad Things",
+            href: "/rad-things",
+            description: "My greatest hits",
+        },
     ]
     return (
-        <main className="md:w-8/12 mx-4 md:mx-auto flex min-h-screen flex-col justify-between py-24 h-full gap-12 md:gap-8">
+        <main className="md:w-8/12 mx-4 md:mx-auto flex  flex-col justify-between py-24 h-full gap-12 md:gap-10">
             <div style={{ viewTransitionName: 'hero' }} className="flex items-center gap-4">
                 <Image src='/insta.jpg' alt="an action shot of me doing a kickflip on a skateboard" width={100} height={100} className='rounded-full' />
                 <div className='flex flex-col justify-center gap-4'>
@@ -55,7 +55,6 @@ export default function Home() {
                     </p>
                 </div>
             </div>
-            <AfterGlow/>
         </main >
     )
 }
