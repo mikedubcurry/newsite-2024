@@ -15,6 +15,8 @@ const config: Config = {
       },
       colors: {
           link: '#1a56db',
+          copy: '#8a805b',
+          'copy-light': '#a89f7a',
       }
     },
   },

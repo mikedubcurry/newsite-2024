@@ -9,7 +9,7 @@ export default function Nav() {
         { href: '/', label: 'Home' },
         { href: '/resume', label: 'Resume' },
         { href: '/projects', label: 'Projects' },
-        { href: '/rad-things', label: 'Rad Things' },
+//        { href: '/rad-things', label: 'Rad Things' },
     ]
     return (
         <nav className='grid grid-cols-3 py-6 w-8/12 mx-auto'>
