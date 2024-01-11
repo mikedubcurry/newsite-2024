@@ -15,9 +15,10 @@ export default function Home() {
             description: "A collection of cools things I've built",
         },
         {
-            title: "Rad Things",
-            href: "/rad-things",
-            description: "My greatest hits",
+            title: "Github",
+            href: "https://github.com/mikedubcurry",
+            description: "My Github profile",
+            newTab: true
         },
     ]
     return (
@@ -31,7 +32,7 @@ export default function Home() {
             </div>
             <div className='flex md:flex-row flex-col justify-center items-stretch gap-6 h-full w-full'>
                 {cards.map((card, i) => (
-                    <Link href={card.href} key={i} className="group w-full md:w-1/3 rounded-xl border border-gray-300 hover:border-yellow-600 flex flex-col justify-center items-center gap-4 p-8 transition-all duration-300 hover:bg-blue-900 hover:scale-[103%] text-center">
+                    <Link href={card.href} key={i} target={card.newTab ? '_blank' : ''} className="group w-full md:w-1/3 rounded-xl border border-gray-300 hover:border-yellow-600 flex flex-col justify-center items-center gap-4 p-8 transition-all duration-300 hover:bg-blue-900 hover:scale-[103%] text-center">
                         <h2 className="text-gray-500 text-3xl font-bold group-hover:text-purple-400 transition-colors duration-300 group-hover:underline">{card.title}</h2>
                         <p className="text-xl text-copy-light group-hover:text-white transition-colors ">{card.description}</p>
                     </Link>
