@@ -20,7 +20,8 @@ type Resume = {
 }
 
 async function fetchResume() {
-    const res = await fetch('/api')
+    const apiUrl = process.env.API_URL;
+    const res = await fetch(`${apiUrl}/api`)
     const data = await res.json()
     return data as { resume: Resume }
 }
