@@ -38,6 +38,15 @@ export default function Projects() {
                     </li>
                 </ul>
 
+                <h2 className="text-4xl font-bold mb-8">React</h2>
+                <ul className="list-inside">
+                    <li className="mb-4">
+                        <a href="https://github.com/mikedubcurry/useTooDark" className="text-blue-500 hover:underline mb-2" target="_blank" rel="referer noopener">useTooDark</a>
+                        <p className="text-gray-500 mb-2">A custom React hook that uses a ref to a video element and returns true/false depending on the darkness of the video.</p>
+                        <p className="text-gray-500 mb-2">The darkness of the video was calculated by dumping the contents of the video into an off-screen canvas and averaging the relative luminance of each pixel, and that value was gets compared to some threshold</p>
+                    </li>
+                </ul>
+
             </section>
         </main>
     )
