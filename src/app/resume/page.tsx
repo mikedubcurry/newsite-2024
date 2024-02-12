@@ -36,7 +36,7 @@ export default async function Resume() {
             { skill: "React", use: "Build out re-usable components and take advantage of the large supporting ecosystem." },
             { skill: "Vue", use: "Used mostly as the frontend of choice within Laravel applications." },
             { skill: "Node", use: "Used to build out REST APIs and serverless applications." },
-            { skill: "NextJS", use: "Used to build out server side rendered React applications, taking advantage of React's latest feature-set." },
+            { skill: "NextJS", use: "Used to build out server side rendered React applications, taking advantage of React's latest feature-set. The framework used for this very site!" },
             { skill: "PHP", use: "Build out server side rendered applications." },
             { skill: "MySQL", use: "Used to store data for applications." },
             { skill: "Laravel", use: "Used to build out server side rendered applications and/or APIs with minimal groundwork required to get started." },
@@ -51,7 +51,7 @@ export default async function Resume() {
                 company: "Troy Web Consulting",
                 startDate: "2022-03-22",
                 endDate: "2023-12-08",
-                description: "Build and maintain full stack web applications for clients using Laravel, Vue, and AWS. Work with clients to determine requirements and design solutions. Notable acheivments include integrating a modern frontend framework with a legacy PHP application, develop and upgrade a serverless application for auditing accessibility, and integrating AI in a mobile web application.",
+                description: "Build and maintain full stack web applications for clients using Laravel, Vue, and AWS. Work with BAs, Designers, PMs and clients to determine requirements and design solutions. Notable acheivments include integrating a modern frontend framework with a legacy PHP application, develop and upgrade a serverless application for auditing accessibility, and integrating AI in a mobile web application.",
             },
             {
                 title: "JavaScript Application Developer",
@@ -102,8 +102,8 @@ export default async function Resume() {
                 <ul className="ml-4">
                     {resume.experience.map((job, i) => (
                         <li className="mb-8" key={i}>
-                            <h3 className="font-bold text-xl text-gray-500">{job.title} - {job.company}</h3>
-                            <p className="italic text-gray-300">{formatDate(job.startDate)} - {formatDate(job.endDate)}</p>
+                            <h3 className="font-bold text-xl text-gray-500 mb-2">{job.title}<div className="italic text-lg mt-1">{job.company}</div></h3>
+                            <p className="mb-2 italic text-gray-300">{formatDate(job.startDate)} - {formatDate(job.endDate)}</p>
                             <p className="leading-7 text-lg">{job.description}</p>
                         </li>
                     ))}
@@ -114,7 +114,7 @@ export default async function Resume() {
                 <ul className="ml-4">
                     {resume.certifications.map((cert, i) => (
                         <li className="mb-4" key={i}>
-                            <h3>{cert.title} ~ {cert.issuer}</h3>
+                            <h3 className="font-bold text-lg text-gray-400">{cert.title}<div className="italic text-sm">{cert.issuer}</div></h3>
                         </li>
                     ))}
                 </ul>

@@ -6,7 +6,7 @@ export default function SkillViewer({ skills }: { skills: { skill: string; use: 
     const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
     return (
-        <div className="grid grid-cols-2">
+        <div className="flex flex-col gap-4 md:gap-0 md:grid md:grid-cols-2">
             <ul className="list-disc list-inside">
                 {skills.map(({ skill, use }, i) => (
                     <li className="text-lg" key={i}>
@@ -17,7 +17,7 @@ export default function SkillViewer({ skills }: { skills: { skill: string; use: 
             <div className="">
                 {selectedSkill && (
                     <div className="flex flex-col justify-center gap-4">
-                        <h3 className="font-bold text-xl text-gray-500">{selectedSkill}</h3>
+                        <h3 className="font-bold text-xl text-purple-500">{selectedSkill}</h3>
                         <p className="text-lg text-gray-200">{skills.find(({ skill }) => skill === selectedSkill)?.use}</p>
                     </div>
                 )}

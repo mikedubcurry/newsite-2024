@@ -12,8 +12,8 @@ export default function Nav() {
 //        { href: '/rad-things', label: 'Rad Things' },
     ]
     return (
-        <nav className='grid grid-cols-3 py-6 w-8/12 mx-auto'>
-            <div className="flex items-center gap-4" style={{viewTransitionName: 'hero'}}>
+        <nav className='flex flex-col md:grid md:grid-cols-4 py-6 w-8/12 mx-auto'>
+            <div className="flex items-center gap-4 justify-center md:justify-start md:col-span-2" style={{viewTransitionName: 'hero'}}>
                 {pathname !== '/' && (
                     < >
                         <Image src='/insta.jpg' alt="an action shot of me doing a kickflip on a skateboard" width={50} height={50} className='rounded-full' />
@@ -25,7 +25,7 @@ export default function Nav() {
                 )}
             </div>
             {/** checks if current pathname is subroute of a link **/}
-            <div className='flex items-center justify-end gap-4 py-4 col-span-2'>
+            <div className='flex items-center justify-center md:justify-end gap-4 py-4 col-span-2'>
                 {links.map(({ href, label }) => (
                     < Link key={href} href={href} className={pathname === href || (pathname.split('/')[1] === href.slice(1)) ? 'font-bold text-yellow-100' : ''}>
                         {label}
