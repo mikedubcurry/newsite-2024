@@ -10,6 +10,7 @@ export default function Projects() {
                     <li className="mb-4">
                         <a href="https://github.com/mikedubcurry/martialarts" className="text-blue-500 hover:underline mb-2" target="_blank" rel="referer noopener">Martial Arts</a>
                         <p className="text-gray-500 mb-2">This app is a work in progress. Its a gym session tracking app for different gyms and training disciplines. Laravel, MySQL, React, and TailwindCSS.</p>
+                        <p className="text-gray-500 mb-2">Deployed via GitHub Action to AWS EC2.</p>
                     </li>
                 </ul>
 
